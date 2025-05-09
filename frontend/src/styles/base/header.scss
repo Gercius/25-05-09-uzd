@@ -1,7 +1,7 @@
-@use 'variables';
+@use "variables";
 
 header {
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 
     nav {
         ul {
@@ -62,7 +62,6 @@ header {
 }
 
 @media (max-width: 995px) {
-
     nav ul {
         display: flex;
         flex-direction: column;

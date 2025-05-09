@@ -1,4 +1,4 @@
-@use 'variables';
+@use "variables";
 
 .form-container {
     background: variables.$light-color;
@@ -6,7 +6,7 @@
     border-radius: variables.$border-radius;
     box-shadow: variables.$box-shadow-light;
     max-width: 500px;
-    margin: 100px auto; 
+    margin: 100px auto;
     text-align: center;
 
     h2 {
@@ -26,7 +26,9 @@ input[type="password"] {
     border: 2px solid rgba(variables.$text-color, 0.2);
     border-radius: variables.$border-radius;
     font-size: 16px;
-    transition: border-color variables.$transition-speed, box-shadow variables.$transition-speed;
+    transition:
+        border-color variables.$transition-speed,
+        box-shadow variables.$transition-speed;
     background: #f9f9f9;
 
     &:focus {
@@ -45,7 +47,9 @@ input[type="password"] {
     border: none;
     border-radius: variables.$border-radius;
     cursor: pointer;
-    transition: background variables.$transition-speed, transform variables.$transition-speed;
+    transition:
+        background variables.$transition-speed,
+        transform variables.$transition-speed;
     width: 100%;
     display: block;
     text-align: center;
