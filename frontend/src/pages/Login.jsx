@@ -1,11 +1,12 @@
 // src/pages/Login.jsx
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/user/user.scss";
 import { useLoading } from "../context/LoadingContext";
-import { login } from "../services/AuthServices";
+import { useAuth } from "../context/AuthContext";
 
 function Login() {
+    const { login } = useAuth();
     const { setLoading } = useLoading();
     const navigate = useNavigate();
     const [name, setName] = useState("");

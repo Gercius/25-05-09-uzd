@@ -1,8 +1,22 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/base/header.scss";
+import { useAuth } from "../context/AuthContext";
+import { useEffect, useState } from "react";
 
 function Header() {
+    const { token, logout } = useAuth();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        setIsLoggedIn(!!token);
+    }, [token]);
+
+    const handleLogout = async () => {
+        await logout();
+        navigate("/");
+    };
+
     return (
         <header>
             <nav className="navbar navbar-expand-lg bg-primary">
@@ -25,16 +39,26 @@ function Header() {
                                     Pagrindinis
                                 </Link>
                             </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/login">
-                                    Prisijungti
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/register">
-                                    Registracija
-                                </Link>
-                            </li>
+                            {isLoggedIn ? (
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/login" onClick={handleLogout}>
+                                        Atsijungti
+                                    </Link>
+                                </li>
+                            ) : (
+                                <>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/login">
+                                            Prisijungti
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/register">
+                                            Registracija
+                                        </Link>
+                                    </li>
+                                </>
+                            )}
                         </ul>
                     </div>
                 </div>
