@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
+import { useHotels } from "../context/HotelContext";
 
-const HotelDetails = ({ hotel, onEdit, onDelete }) => {
+const HotelDetails = ({ hotel, fetchHotels }) => {
+    const { deleteHotel } = useHotels();
+
+    const handleDeleteHotel = async (id) => {
+        const confirmedDeletion = window.confirm("Ar tikrai ištrinti viešbutį?");
+        if (confirmedDeletion) {
+            await deleteHotel(id);
+            await fetchHotels();
+        } else {
+            return;
+        }
+    };
+
     return (
         <div className="col">
             <div className="card">
@@ -18,10 +31,10 @@ const HotelDetails = ({ hotel, onEdit, onDelete }) => {
                         <Link to={`/hotel/${hotel.id}`} className="btn btn-sm btn-primary">
                             Peržiūrėti
                         </Link>
-                        <button onClick={() => onEdit(contest)} className="btn btn-sm btn-warning">
+                        <Link to={`/hotel/edit/${hotel.id}`} className="btn btn-sm btn-warning">
                             Redaguoti
-                        </button>
-                        <button onClick={() => onDelete(contest)} className="btn btn-sm btn-danger">
+                        </Link>
+                        <button onClick={() => handleDeleteHotel(hotel.id)} className="btn btn-sm btn-danger">
                             Ištrinti
                         </button>
                     </div>

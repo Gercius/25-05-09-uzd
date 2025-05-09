@@ -12,6 +12,8 @@ import Hotel from "./pages/Hotel";
 import NotFound from "./pages/NotFound";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/base/global.css";
+import EditHotel from "./pages/EditHotel";
+import AddHotel from "./pages/AddHotel";
 
 function App() {
     return (
@@ -30,6 +32,8 @@ function App() {
                                     <Route path="/dashboard" element={<Dashboard />} />
                                     <Route path="/hotels" element={<Hotels />} />
                                     <Route path="/hotel/:id" element={<Hotel />} />
+                                    <Route path="/hotel/add" element={<AddHotel />} />
+                                    <Route path="/hotel/edit/:id" element={<EditHotel />} />
                                 </Routes>
                             </main>
                         </div>

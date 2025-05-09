@@ -60,7 +60,7 @@ export const createHotel = async (hotelData, token) => {
 
 // Atnaujina viesbuti +
 export const updateHotel = async (id, hotelData, token) => {
-    return fetchRequest(`/hotels/${id}`, { method: "POST", body: JSON.stringify(hotelData) }, token);
+    return fetchRequest(`/hotels/${id}`, { method: "PATCH", body: JSON.stringify(hotelData) }, token);
 };
 
 // Ištrina viesbuti +

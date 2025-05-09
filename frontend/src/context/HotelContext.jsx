@@ -24,7 +24,17 @@ export const HotelProvider = ({ children }) => {
         return hotel ? { ...hotel, id: hotel.id } : null;
     };
 
-    return <HotelContext.Provider value={{ getHotels, getHotelById }}>{children}</HotelContext.Provider>;
+    const createHotel = async (data) => await getResponse(hotelServices.createHotel(data, token));
+
+    const editHotel = async (id, data) => await getResponse(hotelServices.updateHotel(id, data, token));
+
+    const deleteHotel = async (id) => await getResponse(hotelServices.deleteHotel(id, token));
+
+    return (
+        <HotelContext.Provider value={{ getHotels, getHotelById, createHotel, editHotel, deleteHotel }}>
+            {children}
+        </HotelContext.Provider>
+    );
 };
 
 export const useHotels = () => {

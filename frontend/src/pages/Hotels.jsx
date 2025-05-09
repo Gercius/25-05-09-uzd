@@ -81,17 +81,15 @@ function Hotels() {
 
                 <div className="main-content">
                     <div className="container-fluid p-5">
+                        <Link to={`/hotel/add`} className="btn btn-sm btn-primary">
+                            Pridėti Viešbutį
+                        </Link>
                         <h1 className="title">Viešbučių sąrašas</h1>
                         {/* Viešbučių kortelės */}
                         {hotels.length > 0 ? (
                             <div className="row row-cols-1 row-cols-md-2 g-4">
                                 {hotels.map((hotel) => (
-                                    <HotelDetails
-                                        key={hotel.id}
-                                        hotel={hotel}
-                                        onEdit={(data) => openModal("update", data)}
-                                        onDelete={(data) => openModal("delete", data)}
-                                    />
+                                    <HotelDetails fetchHotels={fetchHotels} key={hotel.id} hotel={hotel} />
                                 ))}
                             </div>
                         ) : (
