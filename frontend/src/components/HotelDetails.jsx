@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const HotelDetails = ({ hotel, onEdit, onDelete }) => {
     return (
         <div className="col">
@@ -13,9 +15,9 @@ const HotelDetails = ({ hotel, onEdit, onDelete }) => {
                         <br />
                     </p>
                     <div className="card-actions">
-                        <button onClick={() => onTasks(tasks)} className="btn btn-sm btn-primary">
+                        <Link to={`/hotel/${hotel.id}`} className="btn btn-sm btn-primary">
                             Peržiūrėti
-                        </button>
+                        </Link>
                         <button onClick={() => onEdit(contest)} className="btn btn-sm btn-warning">
                             Redaguoti
                         </button>

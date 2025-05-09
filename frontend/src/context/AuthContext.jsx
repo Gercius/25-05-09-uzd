@@ -17,6 +17,7 @@ export const AuthProvider = ({ children }) => {
     const getResponse = async (response) => {
         const data = await response;
         if (data?.token) setToken(data.token);
+        return data;
     };
 
     // Login

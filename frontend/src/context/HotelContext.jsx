@@ -16,15 +16,15 @@ export const HotelProvider = ({ children }) => {
         }));
     };
 
-    const getHodelById = async (id) => {
+    const getHotelById = async (id) => {
         const response = await getResponse(hotelServices.getHotelById(id, token));
 
-        const hotel = response.hotel || null;
+        const hotel = response.data.hotel || null;
 
         return hotel ? { ...hotel, id: hotel.id } : null;
     };
 
-    return <HotelContext.Provider value={{ getHotels, getHodelById }}>{children}</HotelContext.Provider>;
+    return <HotelContext.Provider value={{ getHotels, getHotelById }}>{children}</HotelContext.Provider>;
 };
 
 export const useHotels = () => {
