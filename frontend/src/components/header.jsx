@@ -1,16 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/base/header.scss";
 import { useAuth } from "../context/AuthContext";
-import { useEffect, useState } from "react";
 
 function Header() {
-    const { token, logout } = useAuth();
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const { logout, isLoggedIn } = useAuth();
     const navigate = useNavigate();
-
-    useEffect(() => {
-        setIsLoggedIn(!!token);
-    }, [token]);
 
     const handleLogout = async () => {
         await logout();

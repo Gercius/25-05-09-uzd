@@ -5,8 +5,10 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(() => localStorage.getItem("jwtToken") || null);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
+        setIsLoggedIn(!!token);
         if (token) {
             localStorage.setItem("jwtToken", token);
         } else {
@@ -37,7 +39,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ token, setToken, login, logout, createUser, getResponse }}>
+        <AuthContext.Provider value={{ token, isLoggedIn, setToken, login, logout, createUser, getResponse }}>
             {children}
         </AuthContext.Provider>
     );

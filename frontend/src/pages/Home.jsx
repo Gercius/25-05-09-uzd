@@ -2,9 +2,11 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import demoImg from "../assets/images/competitions.jpg";
 import { useLoading } from "../context/LoadingContext";
+import { useAuth } from "../context/AuthContext";
 
 function Home() {
     const { setLoading } = useLoading();
+    const { isLoggedIn } = useAuth();
 
     useEffect(() => {
         setLoading(true);
@@ -24,9 +26,11 @@ function Home() {
                 <div className="bg-light text-center py-5">
                     <h1 className="display-5 fw-bold text-dark mb-3">Sveiki atvykę į Hotel IS</h1>
                     <p className="lead text-secondary mb-3">Efektyvus viešbučių valdymas</p>
-                    <Link to="/register" className="btn btn-primary btn-lg">
-                        Registruotis
-                    </Link>
+                    {!isLoggedIn && (
+                        <Link to="/register" className="btn btn-primary btn-lg">
+                            Registruotis
+                        </Link>
+                    )}
                 </div>
 
                 {/* Pagrindinis turinys */}
