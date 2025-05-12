@@ -60,20 +60,21 @@ const HotelForm = ({ hotelData }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="p-4 space-y-4 max-w-md mx-auto">
+        <form onSubmit={handleSubmit} className="mx-auto px-3 px-md-5" style={{ maxWidth: 650 }}>
             <div>
-                <label>Pavadinimas:</label>
+                <label className="d-block">Pavadinimas:</label>
                 <input type="text" name="name" value={formData.name} onChange={handleChange} required />
             </div>
 
             <div>
-                <label>Adresas:</label>
+                <label className="d-block">Adresas:</label>
                 <input type="text" name="address" value={formData.address} onChange={handleChange} required />
             </div>
 
             <div>
-                <label>Reitingas (1-5):</label>
+                <label className="d-block">Reitingas (1-5):</label>
                 <input
+                    className="w-25"
                     type="number"
                     name="ranking"
                     min="1"
@@ -85,18 +86,32 @@ const HotelForm = ({ hotelData }) => {
             </div>
 
             <div>
-                <label>Kaina:</label>
-                <input type="number" name="price" value={formData.price} onChange={handleChange} required />
-            </div>
-
-            <div>
-                <label>Nuolaida (neprivaloma):</label>
-                <input type="number" name="price_discount" value={formData.price_discount} onChange={handleChange} />
-            </div>
-
-            <div>
-                <label>Komfortas (1-7):</label>
+                <label className="d-block">Kaina:</label>
                 <input
+                    className="w-25"
+                    type="number"
+                    name="price"
+                    value={formData.price}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+
+            <div>
+                <label className="d-block">Nuolaida (neprivaloma):</label>
+                <input
+                    className="w-25"
+                    type="number"
+                    name="price_discount"
+                    value={formData.price_discount}
+                    onChange={handleChange}
+                />
+            </div>
+
+            <div>
+                <label className="d-block">Komfortas (1-7):</label>
+                <input
+                    className="w-25"
                     type="number"
                     name="comfort"
                     step="1"
@@ -108,17 +123,17 @@ const HotelForm = ({ hotelData }) => {
             </div>
 
             <div>
-                <label>Arašymas:</label>
-                <textarea name="summary" value={formData.summary} onChange={handleChange} required />
+                <label className="d-block">Arašymas:</label>
+                <textarea className="w-100" name="summary" value={formData.summary} onChange={handleChange} required />
             </div>
 
             <div>
-                <label>Papildoma info (neprivaloma):</label>
-                <textarea name="description" value={formData.description} onChange={handleChange} />
+                <label className="d-block">Papildoma info (neprivaloma):</label>
+                <textarea className="w-100" name="description" value={formData.description} onChange={handleChange} />
             </div>
 
             <div>
-                <label>Nuotraukos nuoroda (neprivaloma):</label>
+                <label className="d-block">Nuotraukos nuoroda (neprivaloma):</label>
                 <input type="text" name="image_cover" value={formData.image_cover} onChange={handleChange} />
             </div>
 

@@ -4,7 +4,7 @@
 + single hotel page by id
     + UI
 + hotel form
-    - UI
+    + UI
 + create hotel page
 + update hotel
 + delete hotel

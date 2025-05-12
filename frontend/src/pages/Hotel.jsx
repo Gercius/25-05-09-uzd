@@ -42,6 +42,12 @@ const Hotel = () => {
                 <div className="mt-2">
                     <span>Kaina - {hotel.price}€ </span>
                     <br />
+                    {hotel.price_discount > 0 && (
+                        <>
+                            <span>Nuolaida - {hotel.price_discount}% </span>
+                            <br />
+                        </>
+                    )}
                     <span>Reitingas - {hotel.ranking} </span>
                     <br />
                     <span>Komfortas - {hotel.comfort}</span>
